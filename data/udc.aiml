@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <random>
+                <li>Wybacz, że nie dorównuję Ci inteligencją, ale nie rozumiem :(</li>
+                <li>Mam tylko 2IQ. Nie rozumiem pytania</li>
+                <li>Nie znam odpowiedzi na to pytanie. Może spróbuj rzucić monetą?</li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>POMOC</pattern>
+        <template>
+            Oto niektóre rzeczy, które potrafię:
+                €> zmieniać twoją listę zadań
+                €> sprawdzać pogodę
+                <!-- <li>opowiadać żarty</li>-->
+                €> pytać google
+                €> pokazywać kotki
+        </template>
+    </category>
+    
+    <category>
+        <pattern>HELP</pattern>
+        <template><srai>pomoc</srai></template>
+    </category>
+    
+    <category>
+        <pattern>CZESC</pattern>
+        <template>
+            <random>
+                <li>Cześć</li>
+                <li>Witaj</li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WITAJ</pattern>
+        <template><srai>czesc</srai></template>
+    </category>
+    
+    <category>
+        <pattern>JESTEM *</pattern>
+        <template><srai>czesc</srai>, <star /></template>
+    </category>
+    
+    <category>
+        <pattern>NAZYWAM SIE *</pattern>
+        <template><srai>jestem <star /></srai></template>
+    </category>
+
+
+    <category>
+        <pattern>OK</pattern>
+        <template>Czy mogę jeszcze jakoś pomóc?</template>
+    </category>
+    
+
+    <category>
+        <pattern>ROZUMIEM</pattern>
+        <template><srai>ok</srai></template>
+    </category>
+
+
+    <category>
+        <pattern>* KOMENDY</pattern>
+        <template>
+            W podstawowym trybie dostępne są komendy:
+            €> google _
+            €> pogoda _
+            €> zdjecie kotka
+            €> pokaz liste
+            €> edytuj
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>JAK SIE NAZYWASZ</pattern>
+        <template>Nazywam się TODOBot</template>
+    </category>
+    
+    <category>
+        <pattern>KIM JESTES</pattern>
+        <template><srai>jak sie nazywasz</srai></template>
+    </category> 
+    
+    <category>
+        <pattern>WIECEJ</pattern>
+        <that>NAZYWAM SIĘ TODOBOT</that>
+        <template>
+            Zostałem stworzony, aby zarządzać twoją listą zadań.€
+            Ale moge przy okazji sprawdzić pogodę, opowiadać żarty i posyłać zdjęcia z kotkami :)€
+            A jeśli poprosisz mogę zapytać o coś mojego wujka - Google€
+            (Psst.. Więcej dowiesz się na https://github.com/michlampert)
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* WIECEJ</pattern>
+        <template><srai>wiecej</srai></template>
+    </category>
+    
+    <category>
+        <pattern>WIECEJ *</pattern>
+        <template><srai>wiecej</srai></template>
+    </category>
+    
+    <category>
+        <pattern>* WIECEJ *</pattern>
+        <template><srai>wiecej</srai></template>
+    </category>
+    
+    
+    
+    <category>
+        <pattern>ZDJECIE KOTKA</pattern>
+        <template>
+            <think><set name="func">photo</set></think>
+            <think><set name="arg"><star /></set></think>
+            Proszę bardzo€http://placekitten.com/300/200
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* ZDJECIE KOTKA</pattern>
+        <template><srai>zdjecie kotka</srai></template>
+    </category>
+    
+    
+    <!--<category>-->
+    <!--    <pattern>MEM</pattern>-->
+    <!--    <template>-->
+    <!--        <random>-->
+    <!--            <li>Widziałeś ten?€</li>-->
+    <!--            <li>HAHA! To jest dobre:€</li>-->
+    <!--        </random>-->
+    <!--        <image>https://dummyimage.com/640x360/fff/aaa</image>-->
+    <!--        ######################€-->
+    <!--        ## tu coś będzie xd ##€-->
+    <!--        ######################-->
+    <!--    </template>-->
+    <!--</category>-->
+    
+
+
+    <category>
+        <pattern>GOOGLE</pattern>
+        <template>Ok, o co go mam zapytać?</template>
+    </category>
+    
+    <category>
+        <pattern>* GOOGLE</pattern>
+        <template><srai>google</srai></template>
+    </category>
+    
+    <category>
+        <pattern>GOOGLE *</pattern>
+        <template>
+        <think><set name="func">google</set></think>
+        <think><set name="arg"><star /></set></think>
+            Zapytałem GOOGLE o <star/>. Powiedział mi:€#
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* GOOGLE *</pattern>
+        <template><srai>google <star index="2"/></srai></template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>OK O CO GO MAM ZAPYTAĆ</that>
+        <template><srai>google <star /></srai></template>
+    </category>
+    
+
+    
+    <category>
+        <pattern>POGODA *</pattern>
+        <template>
+            <think><set name="func">weather</set></think>
+            <think><set name="arg"><star /></set></think>
+            Moi tajni informatorzy powiedzieli mi, że w <star/> panują następujące warunki:€#
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* POGODA *</pattern>
+        <template><srai>pogoda <star index="2"/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>POGODA</pattern>
+        <template><srai>pogoda Kraków</srai></template>
+    </category>
+    
+    <category>
+        <pattern>* POGODA</pattern>
+        <template><srai>pogoda</srai></template>
+    </category>
+    
+    
+    
+    <category>
+        <pattern>EDYTUJ</pattern>
+        <template>
+            O! Wreszcie to na czym znam się najbardziej :)€
+            <think><set name="topic">LIST</set></think>
+            (Jeśli nie będziesz chciał jej dalej edytować to daj znać)
+        </template>
+    </category>
+    
+    <category>
+        <pattern>EDYTUJ *</pattern>
+        <template><srai>edytuj</srai></template>
+    </category>
+    
+    <category>
+        <pattern>POKAZ LISTE</pattern>
+        <template>
+            Oto i ona:€
+            <get name="list" />€
+            <condition name="topic" value="DEFAULT">Daj znać jeśli będziesz chciał ją edytować :)</condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>POKAZ</pattern>
+        <template>Co mam pokazać?</template>
+    </category>
+
+    <category>
+        <pattern>KOTKA</pattern>
+        <that>CO MAM POKAZAĆ</that>
+        <template><srai>ZDJECIE KOTKA</srai></template>
+    </category>
+
+    <category>
+        <pattern>LISTE</pattern>
+        <that>CO MAM POKAZAĆ</that>
+        <template><srai>pokaz liste</srai></template>
+    </category>
+    
+    
+    
+    <topic name="LIST">
+        
+        <category>
+            <pattern>*</pattern>
+            <template>
+                Hmm.. Jesteś w trakcie edytowania swojej listy, ale nie przewidziałem możliwości <star />
+                €Spróbuj użyć jednej z komend: DODAJ | USUŃ | KONIEC
+            </template>
+        </category>
+        
+
+        
+        <category>
+            <pattern>DODAJ *</pattern>
+            <template>
+                <think><set name="func">add</set></think>
+                <think><set name="arg"><star /></set></think>
+                Ok, dodałem <star/> do twojej TODO listy
+            </template>
+        </category>
+        
+        <category>
+            <pattern>DODAJ</pattern>
+            <template>Jakie zadanie chciałbyś dodać?</template>
+        </category>
+        
+        
+        <category>
+            <pattern>*</pattern>
+            <that>JAKIE ZADANIE CHCIAŁBYŚ DODAĆ</that>
+            <template><srai>dodaj <star/></srai></template>
+        </category>
+        
+        
+        
+        <category>
+            <pattern>USUN *</pattern>
+            <template>
+                <think><set name="func">delete</set></think>
+                <think><set name="arg"><star /></set></think>
+                Ok usunąłem <star/> z twojej TODO listy
+            </template>
+        </category>
+        
+        <category>
+            <pattern>USUN</pattern>
+            <template>
+                Które zadanie chciałbyś usunąć?
+            </template>
+        </category>
+        
+        
+        <category>
+            <pattern>*</pattern>
+            <that>KTÓRE ZADANIE CHCIAŁBYŚ USUNĄĆ</that>
+            <template><srai>usun <star/></srai></template>
+        </category>
+        
+        
+        
+        <category>
+           <pattern>RESET</pattern>
+           <template>Jesteś pewien, że chcesz usunąć całą zawartość listy?</template>
+        </category>
+        
+        <category>
+           <pattern>TAK</pattern>
+           <that>JESTEŚ PEWIEN ŻE CHCESZ USUNĄĆ CAŁĄ ZAWARTOŚĆ LISTY</that>
+           <template>
+            <think><set name="func">reset</set></think>
+            <think><set name="arg"></set></think>
+            Ok, usunąłem wszystko z twojej TODO listy
+           </template>
+        </category>
+        
+        
+        
+        <category>
+            <pattern>KONIEC</pattern>
+            <template>
+                Ok, kończymy edycję. Polecam się na przyszłość :)
+                <think><set name="topic">default</set></think>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>* KONIEC</pattern>
+            <template><srai>koniec</srai></template>
+        </category>      
+        
+        <category>
+            <pattern>KONIEC *</pattern>
+            <template><srai>koniec</srai></template>
+        </category>        
+        
+        <category>
+            <pattern>* KONIEC *</pattern>
+            <template><srai>koniec</srai></template>
+        </category>
+    </topic>
+    
+</aiml>

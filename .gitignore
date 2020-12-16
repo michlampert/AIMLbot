@@ -1,0 +1,5 @@
+__pycache__/
+trash_bin/
+.env
+tmp
+tmp.py
